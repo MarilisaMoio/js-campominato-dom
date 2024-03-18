@@ -16,12 +16,13 @@ ul, ol {
     --main-dark: #001633;
     --secondary: #00E164;
     --activated: #0fb3ef;
+    --exploded: rgba(195, 13, 13, 0.996);
     --header-h: 70px;
     --footer-h: 40px;
 }
 
 body{
-    font-family: "Pixelify Sans", sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--main-dark);
 }
 /* #endregion GENERAL */
@@ -87,10 +88,20 @@ main{
     justify-content: center;
     cursor: pointer;
     width: calc(100% / 10);
+    font-family: "Pixelify Sans", sans-serif;
 }
 
 .activated{
     background-color: var(--activated);
+}
+
+.exploded{
+    background-color: var(--exploded);
+}
+
+.square img{
+    width: 70%;
+    aspect-ratio: 1;
 }
 /* #endregion MAIN */
 
