@@ -48,7 +48,13 @@ btn.addEventListener("click", function(){
                 points++;
                 this.removeEventListener("click", isBombOrNot);
             }
-            console.log(bombsPosition.includes(clickedNumber), clickedNumber, points)
+
+            //messaggio di vittoria finale
+            if (points === (numSquares - 16)){
+                squareContainer += '<div class="win">hai vinto!</div>'
+            }
+            console.log (points === numSquares - 16, points, numSquares - 16)
+            console.log(points, bombsPosition.includes(clickedNumber), clickedNumber)
         })
     }
 })
