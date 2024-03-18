@@ -103,6 +103,10 @@ main{
     width: 70%;
     aspect-ratio: 1;
 }
+
+.event-none{
+    pointer-events: none;
+}
 /* #endregion MAIN */
 
 /* #region FOOTER */

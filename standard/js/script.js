@@ -41,6 +41,8 @@ btn.addEventListener("click", function(){
             if (bombsPosition.includes(clickedNumber)){
                 this.classList.add("exploded");
                 this.innerHTML = bombImg
+                squareContainer.classList.add("event-none");
+                console.log(squareContainer.classList)
             } else {
                 this.classList.add("activated");
                 points++;
