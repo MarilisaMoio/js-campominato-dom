@@ -3,13 +3,13 @@
 //raccolta elementi del dom
 const btn = document.querySelector("#start-btn");
 const squareContainer = document.querySelector(".container");
-const bombImg = '<img src="img/Minesweeper_1992.webp" alt="bomb">'
+const bombImg = '<img src="img/Minesweeper_1992.webp" alt="bomb">';
 const counter = document.querySelector("#counter");
 
 btn.addEventListener("click", function(){
     //reset per iniziare una nuova griglia
-    counter.innerHTML = "0"
-    squareContainer.innerHTML = ""
+    counter.innerHTML = "0";
+    squareContainer.innerHTML = "";
     squareContainer.classList.remove("event-none");
 
     //recupero scelte utente e conversione in numero
@@ -27,9 +27,9 @@ btn.addEventListener("click", function(){
     //bombe
     let bombsPosition = []
     while(bombsPosition.length < 16){
-        let newBomb = randomNumber(numSquares)
+        let newBomb = randomNumber(numSquares);
         if (!bombsPosition.includes(newBomb)){
-            bombsPosition.push(newBomb)
+            bombsPosition.push(newBomb);
         }
     }
 
@@ -52,10 +52,9 @@ btn.addEventListener("click", function(){
             //condizioni per decretare se si stanno accumulando punti o no ed eventuali eventi correlati     
             if (bombsPosition.includes(clickedNumber)){
                 this.classList.add("exploded");
-                this.innerHTML = bombImg
+                this.innerHTML = bombImg;
                 squareContainer.classList.add("event-none");
-                console.log(squareContainer.classList)
-                squareContainer.innerHTML += '<div class="loss">hai perso</div>'
+                squareContainer.innerHTML += '<div class="loss">hai perso</div>';
             } else {
                 this.classList.add("activated");
                 counter.innerHTML = ++points;
@@ -64,7 +63,7 @@ btn.addEventListener("click", function(){
 
             //messaggio di vittoria finale
             if (points === (numSquares - 16)){
-                squareContainer.innerHTML += '<div class="win">hai vinto!</div>'
+                squareContainer.innerHTML += '<div class="win">hai vinto!</div>';
             }
         })
     }
@@ -90,5 +89,5 @@ function createDiv(number, choice){
 //max: int
 //return: int
 function randomNumber(max){
-    return Math.floor(Math.random() * (max) +1)
+    return Math.floor(Math.random() * (max) +1);
 }
