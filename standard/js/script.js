@@ -1,12 +1,16 @@
 //Aggiungere la generazione di 16 valori randomici unici, evento al click delle bombe, creazione del counter dei punti 
 
+//raccolta elementi del dom
 const btn = document.querySelector("#start-btn");
 const squareContainer = document.querySelector(".container");
 const bombImg = '<img src="img/Minesweeper_1992.webp" alt="bomb">'
+const counter = document.querySelector("#counter");
 
 btn.addEventListener("click", function(){
     //reset per iniziare una nuova griglia
+    counter.innerHTML = "0"
     squareContainer.innerHTML = ""
+    squareContainer.classList.remove("event-none");
 
     //numero di quadaratini
     let numSquares = 100;
@@ -19,7 +23,6 @@ btn.addEventListener("click", function(){
             bombsPosition.push(newBomb)
         }
     }
-    console.log(bombsPosition)
 
     //contatore
     let points = 0;
@@ -30,31 +33,30 @@ btn.addEventListener("click", function(){
         squareContainer.append(newSquare);
     }
 
-
     //aggiunta dell'onclick fuori dalla funzione
+    // TODO refactoring
     const allSquares = document.querySelectorAll(".square");
 
     for (let i = 0; i < allSquares.length; i++){
         allSquares[i].addEventListener("click", function isBombOrNot(){
             const clickedNumber = parseInt(this.children[0].innerHTML);
-            //condizioni per decretare se si stanno accumulando punti o no      
+            //condizioni per decretare se si stanno accumulando punti o no ed eventuali eventi correlati     
             if (bombsPosition.includes(clickedNumber)){
                 this.classList.add("exploded");
                 this.innerHTML = bombImg
                 squareContainer.classList.add("event-none");
                 console.log(squareContainer.classList)
+                squareContainer.innerHTML += '<div class="loss">hai perso</div>'
             } else {
                 this.classList.add("activated");
-                points++;
+                counter.innerHTML = ++points;
                 this.removeEventListener("click", isBombOrNot);
             }
 
             //messaggio di vittoria finale
             if (points === (numSquares - 16)){
-                squareContainer += '<div class="win">hai vinto!</div>'
+                squareContainer.innerHTML += '<div class="win">hai vinto!</div>'
             }
-            console.log (points === numSquares - 16, points, numSquares - 16)
-            console.log(points, bombsPosition.includes(clickedNumber), clickedNumber)
         })
     }
 })

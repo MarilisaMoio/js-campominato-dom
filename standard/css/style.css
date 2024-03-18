@@ -46,6 +46,16 @@ header{
     }
 }
 
+#counter{
+    background-color: var(--main-dark);
+    color: var(--exploded);
+    padding: 6px 10px;
+    margin: 0 10px;
+    font-size: 1.7rem;
+    font-family: "Pixelify Sans", sans-serif;
+    white-space: nowrap;
+}
+
 #start-btn{
     padding: 3px 10px;
     border-radius: 10px;
@@ -108,7 +118,7 @@ main{
     pointer-events: none;
 }
 
-.win{
+.win, .loss{
     font-size: 7rem;
     color: forestgreen;
     font-weight: 800;
@@ -119,6 +129,14 @@ main{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.loss{
+    color: var(--exploded);
+}
+
+.win{
+    color: green;
 }
 /* #endregion MAIN */
 
