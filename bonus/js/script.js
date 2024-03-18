@@ -71,9 +71,10 @@ btn.addEventListener("click", function(){
 
 
 // FUNCTIONS
-//funzione per generare un div contenente un numero 
+//funzione per generare un div contenente un numero e con una dimensione basata sulla scelta dell'utente
 //argomenti:
     //number: int -> per assegnare il numero all'interno del div
+    //choice: str -> per assegnare la classe
 // return: elemento del DOM
 function createDiv(number, choice){
     const newDiv = document.createElement("div");
